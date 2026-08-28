@@ -1,7 +1,22 @@
-/* Timeline custom component */
+/* ==========================================
+   Custom Properties / Accent Palette
+   ========================================== */
+:root {
+  --accent-primary: #1266f1;
+  --accent-secondary: #b23cfd;
+  --accent-gradient: linear-gradient(135deg, #1266f1, #b23cfd);
+  --bg-warm: #f5f7fa;
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-default: 0 2px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================
+   Timeline custom component
+   ========================================== */
 .timeline-card {
   position: relative;
-  margin-left: 16px; }
+  margin-left: 16px;
+}
 
 .timeline-card:before {
   content: '';
@@ -14,129 +29,364 @@
   top: 16px;
   left: -12px;
   border: 5px solid;
-  z-index: 2; }
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(18, 102, 241, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-card:hover:before {
+  box-shadow: 0 0 0 6px rgba(18, 102, 241, 0.25);
+  transform: scale(1.15);
+}
 
 .timeline-body {
-  border-left: 2px solid #E6E9ED; }
+  border-left: 3px solid;
+  border-image: var(--accent-gradient) 1;
+}
 
 .timeline-card-primary:before {
-  border-color: var(--bs-primary); }
+  border-color: var(--bs-primary);
+}
 
 .timeline-card-info:before {
-  border-color: var(--bs-info); }
+  border-color: var(--accent-primary);
+}
 
 .timeline-card-secondary:before {
-  border-color: var(--bs-secondary); }
+  border-color: var(--bs-secondary);
+}
 
 .timeline-card-success:before {
-  border-color: var(--bs-teal); }
+  border-color: var(--bs-teal);
+}
 
+/* ==========================================
+   Global Styles
+   ========================================== */
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+}
 
 html, body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+}
+
+body.bg-light {
+  background-color: var(--bg-warm) !important;
+}
 
 .container {
-  max-width: 1140px; }
+  max-width: 1140px;
+}
 
+/* ==========================================
+   Header / Site Title
+   ========================================== */
 .site-title {
   font-size: 1.25rem;
-  line-height: 2.5rem; }
+  line-height: 2.5rem;
+}
 
+/* ==========================================
+   Navigation Links
+   ========================================== */
 .nav-link {
   padding: 0;
   font-size: 1rem;
   line-height: 2.5rem;
   color: inherit;
-  opacity: 0.8; }
+  opacity: 0.8;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.site-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+}
+
+.site-nav .nav-link:hover::after,
+.site-nav .nav-link:focus::after {
+  width: 100%;
+}
 
 .header-social .nav-link {
-  font-size: 1.25rem; }
+  font-size: 1.25rem;
+}
 
 .nav-link:hover,
 .nav-link:focus {
   color: inherit;
-  opacity: 1; }
+  opacity: 1;
+}
 
 .nav-item + .nav-item {
-  margin-left: 1rem; }
+  margin-left: 1rem;
+}
 
+/* ==========================================
+   Hero / Cover Section
+   ========================================== */
 .cover {
-  height: 500px; }
+  height: 500px;
+}
 
 .cover > img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: auto; }
+  width: auto;
+}
+
+.cover .mask {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 102, 241, 0.7) 0%,
+    rgba(0, 0, 0, 0.75) 50%,
+    rgba(178, 60, 253, 0.5) 100%
+  ) !important;
+  backdrop-filter: blur(3px) !important;
+}
+
+/* ==========================================
+   Section Cards — Hover Effect
+   ========================================== */
+.shadow-1-strong.bg-white {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.shadow-1-strong.bg-white:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* ==========================================
+   Section Headings — Accent Line
+   ========================================== */
+.h2.fw-light {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.h2.fw-light::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+/* ==========================================
+   Skill Progress Bars
+   ========================================== */
+.progress {
+  border-radius: 20px !important;
+  background-color: #e9ecef;
+  overflow: hidden;
+}
 
 .progress-bar {
   text-transform: uppercase;
   font-size: 10px;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  border-radius: 20px !important;
+  position: relative;
+  overflow: hidden;
+}
 
+.progress-bar.bg-info {
+  background: linear-gradient(90deg, #1266f1, #54b4d3) !important;
+}
+
+.progress-bar.bg-secondary {
+  background: linear-gradient(90deg, #b23cfd, #e040fb) !important;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ==========================================
+   Typography & Utilities
+   ========================================== */
 .text-small {
-  font-size: 0.85rem; }
+  font-size: 0.85rem;
+}
 
 .text-teal {
-  color: var(--bs-teal); }
+  color: var(--bs-teal);
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+footer {
+  border-top: 2px solid transparent;
+  border-image: var(--accent-gradient) 1;
+}
 
 footer a:not(.nav-link) {
   color: inherit;
   border-bottom: 1px dashed;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
+footer .nav-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .nav-link:hover {
+  transform: translateY(-2px);
+}
+
+footer .nav-link:hover .fa-linkedin {
+  color: #0a66c2 !important;
+  opacity: 1;
+}
+
+footer .nav-link:hover .fa-facebook {
+  color: #1877f2 !important;
+  opacity: 1;
+}
+
+footer .nav-link:hover .fa-instagram {
+  color: #e4405f !important;
+  opacity: 1;
+}
+
+footer .nav-link:hover .fa-github {
+  color: #333 !important;
+  opacity: 1;
+}
+
+/* ==========================================
+   Header Social — Icon Hover Colors
+   ========================================== */
+.header-social .nav-link {
+  transition: transform 0.3s ease;
+}
+
+.header-social .nav-link:hover {
+  transform: translateY(-3px) scale(1.15);
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
 @media (min-width: 48em) {
   .site-title {
-    float: left; }
+    float: left;
+  }
   .site-nav {
-    float: right; } }
+    float: right;
+  }
+}
 
 @media (max-width: 767px) {
   /* disable animations on mobile */
   [data-aos] {
     opacity: 1 !important;
-    transform: translate(0) scale(1) !important; }
+    transform: translate(0) scale(1) !important;
+  }
   .p-5 {
-    padding: 2.5rem 2rem !important; }
+    padding: 2.5rem 2rem !important;
+  }
   .portfolio-section .m-5 {
-    margin: 2rem 0 1rem !important; }
+    margin: 2rem 0 1rem !important;
+  }
   .portfolio-reverse {
-    flex-direction: column-reverse; }
+    flex-direction: column-reverse;
+  }
   .portfolio-reverse .text-end {
-    text-align: start !important; } }
+    text-align: start !important;
+  }
+  /* Disable card hover lift on mobile */
+  .shadow-1-strong.bg-white:hover {
+    transform: none;
+  }
+}
 
+/* ==========================================
+   Print Styles
+   ========================================== */
 @media print {
   [data-aos] {
     opacity: 1 !important;
-    transform: translate(0) scale(1) !important; }
+    transform: translate(0) scale(1) !important;
+  }
   body.bg-light {
-    background-color: #fff !important; }
+    background-color: #fff !important;
+  }
   .container {
     width: auto;
     max-width: 100%;
-    padding: 0; }
+    padding: 0;
+  }
   .cover {
     height: 360px;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+  }
   .cover > img {
-    display: none; }
+    display: none;
+  }
   .shadow-1-strong {
-    box-shadow: none !important; }
+    box-shadow: none !important;
+  }
+  .shadow-1-strong.bg-white:hover {
+    transform: none;
+    box-shadow: none !important;
+  }
   .resume-container > .my-5 {
-    margin: 0 !important; }
+    margin: 0 !important;
+  }
   .my-5.p-5 {
-    padding: 1.5rem 0 !important; }
+    padding: 1.5rem 0 !important;
+  }
   .about-section {
-    padding: 0 !important; }
+    padding: 0 !important;
+  }
   .skills-section,
   .work-experience-section,
   .education-section,
   .portfolio-section,
   .reference-section,
   .contact-section {
-    padding: 0 !important; }
+    padding: 0 !important;
+  }
   .page-break {
     padding-top: 5rem;
-    page-break-before: always; } }
+    page-break-before: always;
+  }
+  .progress-bar::after {
+    display: none;
+  }
+}

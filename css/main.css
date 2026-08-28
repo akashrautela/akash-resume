@@ -336,57 +336,89 @@ footer .nav-link:hover .fa-github {
 }
 
 /* ==========================================
-   Print Styles
+   Print Styles (Optimized for Save to PDF)
    ========================================== */
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  @page {
+    margin: 8mm;
+    size: A4 portrait;
+  }
   [data-aos] {
     opacity: 1 !important;
-    transform: translate(0) scale(1) !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
-  body.bg-light {
+  body, body.bg-light {
     background-color: #fff !important;
   }
   .container {
-    width: auto;
-    max-width: 100%;
-    padding: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  header, footer, .d-print-none {
+    display: none !important;
+  }
+  .shadow-1-strong {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .shadow-1-strong.bg-white:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .resume-container > .my-5 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .my-5.p-5 {
+    padding: 1.5rem !important;
   }
   .cover {
-    height: 360px;
-    margin-bottom: 1.5rem;
+    height: auto !important;
+    min-height: 240px !important;
   }
   .cover > img {
     display: none;
   }
-  .shadow-1-strong {
-    box-shadow: none !important;
+  .cover .mask {
+    background: linear-gradient(135deg, #1266f1 0%, #1a1a2e 50%, #7b1fa2 100%) !important;
   }
-  .shadow-1-strong.bg-white:hover {
-    transform: none;
-    box-shadow: none !important;
+  .timeline-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 1rem !important;
   }
-  .resume-container > .my-5 {
-    margin: 0 !important;
+  .timeline-body {
+    border-left: 3px solid #1266f1 !important;
   }
-  .my-5.p-5 {
-    padding: 1.5rem 0 !important;
+  .progress {
+    background-color: #e2e8f0 !important;
+    border: 1px solid #cbd5e1 !important;
   }
-  .about-section {
-    padding: 0 !important;
+  .progress-bar.bg-info {
+    background-color: #1266f1 !important;
   }
-  .skills-section,
-  .work-experience-section,
-  .education-section,
-  .portfolio-section,
-  .reference-section,
-  .contact-section {
-    padding: 0 !important;
-  }
-  .page-break {
-    padding-top: 5rem;
-    page-break-before: always;
+  .progress-bar.bg-secondary {
+    background-color: #b23cfd !important;
   }
   .progress-bar::after {
-    display: none;
+    display: none !important;
+  }
+  .page-break {
+    page-break-before: always;
+    break-before: page;
   }
 }
+
+

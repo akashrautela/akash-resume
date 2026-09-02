@@ -21,57 +21,59 @@
   </head>
   <body id="top">
 
-    <!-- ===================== NAVBAR (Fixed) ===================== -->
-    <nav class="navbar d-print-none" id="mainNav">
-      <div class="navbar-inner container">
-        <a class="navbar-brand" href="#top">Akash Rautela</a>
-        <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="navbar-links" id="navLinks">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#awards">Awards</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <a href="resume.pdf" download="Akash_Rautela_Resume.pdf" class="nav-cta">
-              <i class="fas fa-download"></i> CV
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <!-- WEB PORTFOLIO (Hidden during print) -->
+    <div id="web-portfolio">
+      <!-- ===================== NAVBAR (Fixed) ===================== -->
+      <nav class="navbar" id="mainNav">
+        <div class="navbar-inner container">
+          <a class="navbar-brand" href="#top">Akash Rautela</a>
+          <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+          <ul class="navbar-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="#" onclick="window.print(); return false;" class="nav-cta">
+                <i class="fas fa-download"></i> CV
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero" id="hero">
-      <div class="hero-bg">
-        <img src="images/header-background.jpg" alt="" />
-      </div>
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
-        <div class="hero-avatar" data-aos="fade-up" data-aos-delay="0">
-          <img src="images/avatar.png" alt="Akash Rautela" />
+      <!-- ===================== HERO ===================== -->
+      <section class="hero" id="hero">
+        <div class="hero-bg">
+          <img src="images/header-background.jpg" alt="" />
         </div>
-        <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">Akash Rautela</h1>
-        <p class="hero-title" data-aos="fade-up" data-aos-delay="200">Full-Stack .NET Developer</p>
-        <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
-          Building scalable enterprise applications with .NET Core, Angular, Vue.js, Azure &amp; AI
-        </p>
-        <div class="hero-socials" data-aos="fade-up" data-aos-delay="400">
-          <a href="https://www.linkedin.com/in/akash-rautela-213596135/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/akashrautela" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.instagram.com/akash._.rautela/?hl=en" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/aakash.rautela.5/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <div class="hero-avatar" data-aos="fade-up" data-aos-delay="0">
+            <img src="images/avatar.png" alt="Akash Rautela" />
+          </div>
+          <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">Akash Rautela</h1>
+          <p class="hero-title" data-aos="fade-up" data-aos-delay="200">Full-Stack .NET Developer</p>
+          <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
+            Building scalable enterprise applications with .NET Core, Angular, Vue.js, Azure &amp; AI
+          </p>
+          <div class="hero-socials" data-aos="fade-up" data-aos-delay="400">
+            <a href="https://www.linkedin.com/in/akash-rautela-213596135/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/akashrautela" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/akash._.rautela/?hl=en" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/aakash.rautela.5/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+          <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
+            <a href="#contact" class="btn-primary-custom">Get in Touch</a>
+            <a href="#" onclick="window.print(); return false;" class="btn-outline-custom">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
         </div>
-        <div class="hero-actions" data-aos="fade-up" data-aos-delay="500">
-          <a href="#contact" class="btn-primary-custom">Get in Touch</a>
-          <a href="resume.pdf" download="Akash_Rautela_Resume.pdf" class="btn-outline-custom">
-            <i class="fas fa-download"></i> Download CV
-          </a>
-        </div>
-      </div>
       <a href="#about" class="scroll-indicator" aria-label="Scroll down">
         <i class="fas fa-chevron-down"></i>
       </a>
@@ -519,6 +521,162 @@
         </div>
       </div>
     </footer>
+
+    </div> <!-- End of web-portfolio -->
+
+    <!-- ===================== CV PRINT TEMPLATE (Hidden on web) ===================== -->
+    <div id="cv-print-template">
+      <div class="cv-header">
+        <h1>AKASH RAUTELA</h1>
+        <h2>Full-Stack .NET Developer</h2>
+        <p>Dehradun, India &bull; +91 7017207251 &bull; akashrautela1@gmail.com &bull; linkedin.com/in/akash-rautela-213596135</p>
+      </div>
+
+      <div class="cv-body">
+        <!-- Left Column -->
+        <div class="cv-left">
+          <div class="cv-section">
+            <h3 class="cv-section-title">EDUCATION</h3>
+            <div class="cv-item">
+              <div class="cv-item-title">B.Tech (Computer Science)</div>
+              <div class="cv-item-meta">Graphic Era University | 2016 - 2020</div>
+              <div class="cv-item-desc">CGPA: 8.94/10</div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">TECHNICAL SKILLS</h3>
+            
+            <div class="cv-skill-group">
+              <div class="cv-skill-title">Frontend</div>
+              <div class="cv-skill-list">Angular, Vue.js, HTML5, CSS3, JavaScript, TypeScript</div>
+            </div>
+            
+            <div class="cv-skill-group">
+              <div class="cv-skill-title">Backend</div>
+              <div class="cv-skill-list">C#, .NET Core, .NET Framework, ASP.NET MVC, Web API, Microservices</div>
+            </div>
+            
+            <div class="cv-skill-group">
+              <div class="cv-skill-title">Databases</div>
+              <div class="cv-skill-list">SQL Server, PostgreSQL, MySQL, Entity Framework</div>
+            </div>
+            
+            <div class="cv-skill-group">
+              <div class="cv-skill-title">Cloud &amp; DevOps</div>
+              <div class="cv-skill-list">Azure, AWS, Azure DevOps, Jenkins, Git, CI/CD</div>
+            </div>
+            
+            <div class="cv-skill-group">
+              <div class="cv-skill-title">AI &amp; Tools</div>
+              <div class="cv-skill-list">Cursor AI, GitHub Copilot, ChatGPT, Claude (Sonnet/Opus), Grok</div>
+            </div>
+            
+            <div class="cv-skill-group">
+              <div class="cv-skill-title">Architecture</div>
+              <div class="cv-skill-list">Clean Architecture, Agile, Unit/Load Testing</div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">AWARDS &amp; HONORS</h3>
+            <ul class="cv-bullet-list">
+              <li><strong>IGNITE Spotlight Award</strong> - Bounteous</li>
+              <li><strong>Best Performing Squad</strong> - NAB AI Game</li>
+              <li><strong>Star of the Month (2024)</strong> - Accenture</li>
+              <li><strong>Best People Award (2024)</strong> - Accenture</li>
+              <li><strong>2x Insta Awards</strong> - Infosys</li>
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">CERTIFICATIONS</h3>
+            <ul class="cv-bullet-list">
+              <li>Microsoft Certified: Azure AI Fundamentals</li>
+              <li>Microsoft Certified: Azure Fundamentals</li>
+              <li>Nvidia AI Knowledge Quest</li>
+            </ul>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">LANGUAGES</h3>
+            <ul class="cv-bullet-list">
+              <li>English (Fluent)</li>
+              <li>Hindi (Native)</li>
+            </ul>
+          </div>
+
+          <div class="cv-quote">
+            "Simplicity is the ultimate sophistication."<br>
+            <span>&mdash; Leonardo da Vinci</span>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="cv-right">
+          <div class="cv-section">
+            <h3 class="cv-section-title">PROFESSIONAL SUMMARY</h3>
+            <p class="cv-text">
+              Full Stack .NET Developer with 6+ years of experience building scalable enterprise applications. I specialize in clean architecture, performance optimization, and AI-accelerated cloud-native solutions using .NET Core, C#, Angular, Azure, and AWS. My background spans the banking, insurance, and resource management domains, where I build end-to-end systems utilizing microservices, CI/CD pipelines, and advanced AI IDE integrations to solve complex technical challenges efficiently.
+            </p>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">PROFESSIONAL EXPERIENCE</h3>
+            
+            <div class="cv-item">
+              <div class="cv-item-title">Lead Software Engineer</div>
+              <div class="cv-item-meta">Bounteous | Gurugram, India (Remote) | 07/2025 - Present</div>
+              <ul class="cv-bullet-list">
+                <li><strong>NAB India (Global Innovation Hub):</strong> Working as a Full Stack .NET/Vue.js Developer in the RAGE team (IRRBB), building interest rate risk management solutions. Extensively utilizing the <strong>Cursor AI IDE</strong> with <strong>GPT, Claude (Sonnet/Opus), and Grok</strong> models to accelerate development.</li>
+                <li><strong>AON Singapore (Insurance Platform):</strong> Built microservices and micro-frontend architectures with PostgreSQL. Leveraged <strong>GitHub Copilot</strong> with <strong>Claude Sonnet 4.6</strong> and GPT models for rapid feature delivery and bug resolution in the Data Lab module.</li>
+                <li><strong>AI Innovation:</strong> Won "Best Performing Squad" at the 2-day NAB AI Game hackathon, rapidly prototyping solutions to test the absolute limits of AI-assisted coding in a high-pressure environment.</li>
+                <li><strong>Recognition:</strong> Received the IGNITE Spotlight Award (Above &amp; Beyond) for taking ownership of tasks, proactively identifying edge cases, and supporting the team.</li>
+              </ul>
+            </div>
+
+            <div class="cv-item mt-cv">
+              <div class="cv-item-title">Senior Full Stack Developer</div>
+              <div class="cv-item-meta">Accenture | Noida, India | 04/2024 - 07/2025</div>
+              <ul class="cv-bullet-list">
+                <li><strong>Solution Planner (Resource Management):</strong> Built a responsive Angular frontend reducing load times by 35%, and developed ASP.NET Core RESTful APIs cutting latency by 20%.</li>
+                <li>Integrated SQL Server for real-time reporting, optimizing queries to run 30% faster. Set up Role-Based Access Control (RBAC) to maintain strict data security compliance.</li>
+                <li>Utilized <strong>GitHub Copilot</strong> and <strong>GPT models</strong> within VS Code to streamline coding workflows, and conducted rigorous code reviews to reduce production issues by 30%.</li>
+              </ul>
+            </div>
+
+            <div class="cv-item mt-cv">
+              <div class="cv-item-title">Digital Specialist Engineer</div>
+              <div class="cv-item-meta">Infosys | Pune, India | 09/2020 - 04/2024</div>
+              <ul class="cv-bullet-list">
+                <li><strong>TKE China Sales Configurator:</strong> Developed independent CPQ modules, streamlining the elevator sales workflow for ThyssenKrupp.</li>
+                <li>Handled rigorous production support to maintain 99.9% system uptime, troubleshooting issues within tight SLAs, while designing optimized backend C# APIs.</li>
+                <li>Completed internal AI training courses and actively leveraged <strong>ChatGPT</strong> to accelerate problem-solving, learn new concepts, and adopt development best practices.</li>
+              </ul>
+            </div>
+
+            <div class="cv-item mt-cv">
+              <div class="cv-item-title">.NET Full Stack Trainee</div>
+              <div class="cv-item-meta">Infosys | Mysore, India | 09/2020 - 12/2020</div>
+              <ul class="cv-bullet-list">
+                <li>Completed intensive training in the Microsoft technology stack and built a hotel booking management system using .NET Core, Angular, and SQL Server, applying competitive programming skills to optimize logic.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3 class="cv-section-title">VOLUNTEERING &amp; COMMUNITY SERVICE</h3>
+            <div class="cv-item">
+              <div class="cv-item-title">Volunteer</div>
+              <div class="cv-item-meta">Nature's Buddy NGO | 06/2019 - Present</div>
+              <ul class="cv-bullet-list">
+                <li>Organize weekend cleanup drives around the city to maintain public spaces and lead volunteer teams to raise awareness about environmental sustainability.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="scripts/mdb.min.js"></script>
     <script src="scripts/aos.js"></script>

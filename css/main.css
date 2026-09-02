@@ -954,49 +954,173 @@ a:hover { color: var(--accent-hover); }
 }
 
 /* ==========================================================
-   PRINT STYLES
+   PRINT TEMPLATE STYLES
    ========================================================== */
+#cv-print-template {
+  display: none;
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+    box-sizing: border-box;
   }
-  @page { margin: 10mm; size: A4 portrait; }
-
-  .navbar, .d-print-none, .scroll-indicator, .hero-actions,
-  .hero-socials, .contact-socials, .map-container, footer {
-    display: none !important;
-  }
-
-  body { font-size: 11pt; color: #000; background: #fff; }
-
-  .hero {
-    min-height: auto;
-    padding: 40px 0;
-    background: #0b1120 !important;
+  
+  @page { 
+    margin: 0; 
+    size: A4 portrait; 
   }
 
-  .hero-overlay {
-    background: rgba(11, 17, 32, 0.95) !important;
+  body { 
+    margin: 0; 
+    padding: 0; 
+    background: #fff !important; 
   }
 
-  .section { padding: 24px 0; }
-
-  .timeline-content, .skill-card, .awards-card, .volunteer-card, .portfolio-card {
-    break-inside: avoid;
-    page-break-inside: avoid;
-    box-shadow: none !important;
-    border: 1px solid #ddd !important;
+  /* Hide the web portfolio entirely */
+  #web-portfolio { 
+    display: none !important; 
   }
 
-  .tag, .highlight-badge, .timeline-date {
-    border: 1px solid #ccc !important;
+  /* Show and style the CV template */
+  #cv-print-template {
+    display: block !important;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 15mm;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background: #fff;
+    font-size: 9pt;
+    line-height: 1.4;
   }
 
-  [data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-    animation: none !important;
+  /* Header */
+  .cv-header {
+    text-align: center;
+    border-bottom: 2px solid #1e6091;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  .cv-header h1 {
+    font-size: 24pt;
+    font-weight: 700;
+    color: #1e6091;
+    margin: 0 0 5px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .cv-header h2 {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #1e6091;
+    margin: 0 0 5px 0;
+  }
+  .cv-header p {
+    font-size: 8.5pt;
+    color: #555;
+    margin: 0;
+  }
+
+  /* Body Grid */
+  .cv-body {
+    display: flex;
+    gap: 15px;
+  }
+  .cv-left {
+    width: 32%;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 15px;
+  }
+  .cv-right {
+    width: 68%;
+  }
+
+  /* Section Titles */
+  .cv-section {
+    margin-bottom: 15px;
+  }
+  .cv-section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1e6091;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 4px;
+    margin: 0 0 8px 0;
+  }
+
+  /* Left Column Items */
+  .cv-item-title {
+    font-weight: 700;
+    font-size: 9pt;
+    color: #000;
+  }
+  .cv-item-meta {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #555;
+    margin: 2px 0;
+  }
+  .cv-item-desc {
+    font-size: 8.5pt;
+    color: #333;
+  }
+
+  /* Skills */
+  .cv-skill-group {
+    margin-bottom: 6px;
+  }
+  .cv-skill-title {
+    font-weight: 700;
+    font-size: 8.5pt;
+    color: #000;
+  }
+  .cv-skill-list {
+    font-size: 8.5pt;
+    color: #444;
+  }
+
+  /* Lists */
+  .cv-bullet-list {
+    margin: 0;
+    padding-left: 15px;
+  }
+  .cv-bullet-list li {
+    font-size: 8.5pt;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  /* Text */
+  .cv-text {
+    font-size: 8.5pt;
+    text-align: justify;
+    margin: 0;
+  }
+
+  /* Spacing */
+  .mt-cv {
+    margin-top: 10px;
+  }
+
+  /* Quote */
+  .cv-quote {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-left: 3px solid #1e6091;
+    font-style: italic;
+    font-size: 8pt;
+    color: #555;
+  }
+  .cv-quote span {
+    display: block;
+    margin-top: 4px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: right;
   }
 }

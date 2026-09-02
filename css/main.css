@@ -1,67 +1,29 @@
 /* ==========================================
-   Custom Properties / Accent Palette
+   Design System — Enterprise Tech (Navy + Azure)
    ========================================== */
 :root {
-  --accent-primary: #1266f1;
-  --accent-secondary: #b23cfd;
-  --accent-gradient: linear-gradient(135deg, #1266f1, #b23cfd);
-  --bg-warm: #f5f7fa;
-  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --shadow-default: 0 2px 15px rgba(0, 0, 0, 0.06);
+  --navy: #0f172a;
+  --navy-light: #1e293b;
+  --azure: #0078d4;
+  --azure-light: #2196f3;
+  --teal: #06b6d4;
+  --surface: #f8fafc;
+  --card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.1);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================
-   Timeline custom component
-   ========================================== */
-.timeline-card {
-  position: relative;
-  margin-left: 16px;
-}
-
-.timeline-card:before {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  background-color: #fff;
-  border-radius: 100%;
-  width: 24px;
-  height: 24px;
-  top: 16px;
-  left: -12px;
-  border: 5px solid;
-  z-index: 2;
-  box-shadow: 0 0 0 4px rgba(18, 102, 241, 0.15);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.timeline-card:hover:before {
-  box-shadow: 0 0 0 6px rgba(18, 102, 241, 0.25);
-  transform: scale(1.15);
-}
-
-.timeline-body {
-  border-left: 3px solid;
-  border-image: var(--accent-gradient) 1;
-}
-
-.timeline-card-primary:before {
-  border-color: var(--bs-primary);
-}
-
-.timeline-card-info:before {
-  border-color: var(--accent-primary);
-}
-
-.timeline-card-secondary:before {
-  border-color: var(--bs-secondary);
-}
-
-.timeline-card-success:before {
-  border-color: var(--bs-teal);
-}
-
-/* ==========================================
-   Global Styles
+   Base / Reset
    ========================================== */
 html {
   scroll-behavior: smooth;
@@ -72,32 +34,71 @@ html, body {
 }
 
 body.bg-light {
-  background-color: var(--bg-warm) !important;
+  background-color: var(--surface) !important;
+  color: var(--text-primary);
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1080px;
 }
 
 /* ==========================================
-   Header / Site Title
+   Typography
    ========================================== */
-.site-title {
-  font-size: 1.25rem;
-  line-height: 2.5rem;
+.text-small {
+  font-size: 0.85rem;
 }
 
-/* ==========================================
-   Navigation Links
-   ========================================== */
-.nav-link {
-  padding: 0;
-  font-size: 1rem;
-  line-height: 2.5rem;
-  color: inherit;
-  opacity: 0.8;
+.text-teal {
+  color: var(--teal);
+}
+
+h2.h2 {
+  font-weight: 600 !important;
+  color: var(--navy-light);
   position: relative;
-  transition: opacity 0.3s ease;
+  display: inline-block;
+  padding-bottom: 12px;
+  margin-bottom: 1.5rem !important;
+}
+
+h2.h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--azure);
+  border-radius: 2px;
+}
+
+/* ==========================================
+   Header / Navigation
+   ========================================== */
+header {
+  background: var(--navy);
+}
+
+.site-title {
+  font-size: 1.2rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.site-nav .nav-link {
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  transition: color var(--transition);
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus {
+  color: #fff;
 }
 
 .site-nav .nav-link::after {
@@ -107,8 +108,8 @@ body.bg-light {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-gradient);
-  transition: width 0.3s ease;
+  background: var(--azure);
+  transition: width var(--transition);
 }
 
 .site-nav .nav-link:hover::after,
@@ -116,209 +117,314 @@ body.bg-light {
   width: 100%;
 }
 
-.header-social .nav-link {
-  font-size: 1.25rem;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: inherit;
-  opacity: 1;
-}
-
 .nav-item + .nav-item {
-  margin-left: 1rem;
+  margin-left: 1.25rem;
 }
 
 /* ==========================================
    Hero / Cover Section
    ========================================== */
 .cover {
-  height: 500px;
+  height: 480px;
 }
 
 .cover > img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: auto;
 }
 
 .cover .mask {
   background: linear-gradient(
-    135deg,
-    rgba(18, 102, 241, 0.7) 0%,
-    rgba(0, 0, 0, 0.75) 50%,
-    rgba(178, 60, 253, 0.5) 100%
+    160deg,
+    rgba(15, 23, 42, 0.92) 0%,
+    rgba(15, 23, 42, 0.85) 40%,
+    rgba(0, 120, 212, 0.6) 100%
   ) !important;
-  backdrop-filter: blur(3px) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.avatar .img-thumbnail {
+  border: 3px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+}
+
+.header-bio h2.h1 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header-bio h2.h1::after {
+  display: none;
+}
+
+.header-bio p {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+}
+
+.header-social .nav-link {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition), transform var(--transition);
+}
+
+.header-social .nav-link:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* CTA Buttons */
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+  padding: 0.6rem 1.8rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-info {
+  background: var(--azure) !important;
+  border-color: var(--azure) !important;
+  font-weight: 500;
+  padding: 0.6rem 1.8rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.btn-info:hover {
+  background: var(--azure-light) !important;
+  border-color: var(--azure-light) !important;
+  transform: translateY(-1px);
 }
 
 /* ==========================================
-   Section Cards — Hover Effect
+   Content Cards
    ========================================== */
 .shadow-1-strong.bg-white {
-  transition: box-shadow 0.35s ease, transform 0.35s ease;
-  border-radius: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
+  transition: box-shadow var(--transition);
 }
 
 .shadow-1-strong.bg-white:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  transform: none;
 }
 
 /* ==========================================
-   Section Headings — Accent Line
+   Skill Badges (Pill Tags)
    ========================================== */
-.h2.fw-light {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 10px;
-}
-
-.h2.fw-light::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background: var(--accent-gradient);
-  border-radius: 2px;
-}
-
-/* ==========================================
-   Skill Progress Bars
-   ========================================== */
-.progress {
-  border-radius: 20px !important;
-  background-color: #e9ecef;
-  overflow: hidden;
-}
-
-.progress-bar {
+.skill-category-title {
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 1px;
-  border-radius: 20px !important;
-  position: relative;
-  overflow: hidden;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
 }
 
-.progress-bar.bg-info {
-  background: linear-gradient(90deg, #1266f1, #54b4d3) !important;
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-.progress-bar.bg-secondary {
-  background: linear-gradient(90deg, #b23cfd, #e040fb) !important;
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--navy-light);
+  background: var(--border-light);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  transition: all var(--transition);
+  white-space: nowrap;
 }
 
-.progress-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  animation: shimmer 2.5s ease-in-out infinite;
+.skill-badge:hover {
+  background: var(--azure);
+  color: #fff;
+  border-color: var(--azure);
+  transform: translateY(-1px);
 }
 
-@keyframes shimmer {
-  0% { left: -100%; }
-  100% { left: 100%; }
+.skill-badge i {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.skill-badge-primary {
+  background: rgba(0, 120, 212, 0.08);
+  border-color: rgba(0, 120, 212, 0.2);
+  color: var(--azure);
+}
+
+.skill-badge-primary:hover {
+  background: var(--azure);
+  color: #fff;
+  border-color: var(--azure);
 }
 
 /* ==========================================
-   Typography & Utilities
+   Timeline
    ========================================== */
-.text-small {
-  font-size: 0.85rem;
+.timeline-card {
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 0.5rem;
 }
 
-.text-teal {
-  color: var(--bs-teal);
+.timeline-card:before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  background-color: var(--card);
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  top: 20px;
+  left: -7px;
+  border: 3px solid;
+  z-index: 2;
+}
+
+.timeline-body {
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem !important;
+}
+
+.timeline-card-primary:before {
+  border-color: var(--navy-light);
+}
+
+.timeline-card-info:before {
+  border-color: var(--azure);
+}
+
+.timeline-card-secondary:before {
+  border-color: var(--text-muted);
+}
+
+.timeline-card-success:before {
+  border-color: var(--teal);
+}
+
+.timeline-head .h5 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy-light);
+}
+
+.timeline-head .h5 .text-muted {
+  font-weight: 400;
+}
+
+/* ==========================================
+   Awards & Certs
+   ========================================== */
+.awards-section .list-unstyled li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.awards-section .list-unstyled li:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================
+   Portfolio
+   ========================================== */
+.portfolio-section h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy-light);
+}
+
+.portfolio-section .text-teal {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--azure) !important;
+}
+
+/* ==========================================
+   Contact Section
+   ========================================== */
+.contant-section .h6 {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.contant-section .h6 i {
+  color: var(--azure) !important;
+  opacity: 1 !important;
 }
 
 /* ==========================================
    Footer
    ========================================== */
 footer {
-  border-top: 2px solid transparent;
-  border-image: var(--accent-gradient) 1;
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+}
+
+footer .h4 {
+  color: #fff;
+  font-weight: 600;
 }
 
 footer a:not(.nav-link) {
   color: inherit;
-  border-bottom: 1px dashed;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
   text-decoration: none;
-  cursor: pointer;
 }
 
 footer .nav-link {
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--transition), transform var(--transition);
 }
 
 footer .nav-link:hover {
+  color: #fff;
   transform: translateY(-2px);
 }
 
-footer .nav-link:hover .fa-linkedin {
-  color: #0a66c2 !important;
-  opacity: 1;
-}
-
-footer .nav-link:hover .fa-facebook {
-  color: #1877f2 !important;
-  opacity: 1;
-}
-
-footer .nav-link:hover .fa-instagram {
-  color: #e4405f !important;
-  opacity: 1;
-}
-
-footer .nav-link:hover .fa-github {
-  color: #333 !important;
-  opacity: 1;
-}
-
-/* ==========================================
-   Header Social — Icon Hover Colors
-   ========================================== */
-.header-social .nav-link {
-  transition: transform 0.3s ease;
-}
-
-.header-social .nav-link:hover {
-  transform: translateY(-3px) scale(1.15);
-}
+footer .nav-link:hover .fa-linkedin { color: #0a66c2 !important; }
+footer .nav-link:hover .fa-facebook { color: #1877f2 !important; }
+footer .nav-link:hover .fa-instagram { color: #e4405f !important; }
+footer .nav-link:hover .fa-github { color: #fff !important; }
 
 /* ==========================================
    Responsive
    ========================================== */
 @media (min-width: 48em) {
-  .site-title {
-    float: left;
-  }
-  .site-nav {
-    float: right;
-  }
+  .site-title { float: left; }
+  .site-nav { float: right; }
 }
 
 @media (max-width: 767px) {
-  /* disable animations on mobile */
   [data-aos] {
     opacity: 1 !important;
     transform: translate(0) scale(1) !important;
   }
   .p-5 {
-    padding: 2.5rem 2rem !important;
+    padding: 2rem 1.5rem !important;
   }
   .portfolio-section .m-5 {
     margin: 2rem 0 1rem !important;
@@ -329,14 +435,20 @@ footer .nav-link:hover .fa-github {
   .portfolio-reverse .text-end {
     text-align: start !important;
   }
-  /* Disable card hover lift on mobile */
-  .shadow-1-strong.bg-white:hover {
-    transform: none;
+  .cover {
+    height: 420px;
+  }
+  .skill-badges {
+    gap: 0.4rem;
+  }
+  .skill-badge {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
   }
 }
 
 /* ==========================================
-   Print Styles (Optimized for Save to PDF)
+   Print Styles (Save to PDF)
    ========================================== */
 @media print {
   * {
@@ -378,47 +490,39 @@ footer .nav-link:hover .fa-github {
     box-shadow: none !important;
   }
   .resume-container > .my-5 {
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
   }
   .my-5.p-5 {
-    padding: 1.5rem !important;
+    padding: 1.25rem !important;
   }
   .cover {
     height: auto !important;
-    min-height: 240px !important;
+    min-height: 200px !important;
   }
   .cover > img {
     display: none;
   }
   .cover .mask {
-    background: linear-gradient(135deg, #1266f1 0%, #1a1a2e 50%, #7b1fa2 100%) !important;
+    background: linear-gradient(160deg, #0f172a 0%, #0f172a 50%, #0078d4 100%) !important;
   }
   .timeline-card {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.5rem !important;
   }
   .timeline-body {
-    border-left: 3px solid #1266f1 !important;
+    border-left: 2px solid var(--azure) !important;
   }
-  .progress {
-    background-color: #e2e8f0 !important;
+  .skill-badge {
     border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+    background: #f1f5f9 !important;
+    -webkit-print-color-adjust: exact !important;
   }
-  .progress-bar.bg-info {
-    background-color: #1266f1 !important;
-  }
-  .progress-bar.bg-secondary {
-    background-color: #b23cfd !important;
-  }
-  .progress-bar::after {
-    display: none !important;
-  }
-  .page-break {
-    page-break-before: always;
-    break-before: page;
+  .skill-badge-primary {
+    background: rgba(0, 120, 212, 0.1) !important;
+    color: #0078d4 !important;
+    border-color: rgba(0, 120, 212, 0.3) !important;
   }
 }
-
-

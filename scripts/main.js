@@ -40,7 +40,4 @@ AOS.init({
   });
 })();
 
-// ---- Download CV (Print to PDF) ----
-function generatePDF() {
-  window.print();
-}
+
